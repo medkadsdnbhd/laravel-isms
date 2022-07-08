@@ -21,7 +21,7 @@ class ISMSChannel
             $message = $notification->toISMS($notifiable)->message();
             $result = $this->ISMSClient->sendSMS($to, $message);
 
-            if ($result->status == 'FAILED') {
+            if ($result->status() != 200) {
                 throw ISMSException::couldNotSend($result->status_code, $result->error_message);
             } else {
                 return true;
