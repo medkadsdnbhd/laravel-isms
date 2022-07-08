@@ -1,0 +1,29 @@
+{
+    "name": "medkad/laravel-isms",
+    "description": "Laravel Notification Channel For iSMS",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tarmizi Sanusi",
+            "email": "tarmizi@medkad.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3|^7.0.1",
+        "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Medkad\\ISMS\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Medkad\\ISMS\\ISMSServiceProvider"
+            ]
+        }
+    }
+}
