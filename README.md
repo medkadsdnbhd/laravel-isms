@@ -1,5 +1,9 @@
 # Medkad SMS: ISMS (Laravel Notification Channel)
 
+## Getting started
+
+Please register to your account credentials at [iSMS Official Website](https://www.isms.com.my/register.php).
+The API is using Basic Authentication(so ***username*** and ***password*** will do).
 
 ## Installation
 
@@ -11,7 +15,7 @@ composer require medkad/laravel-isms
 
 ### Setting up your configuration
 
-Add your ISMS Account credentials to your `config/services.php`:
+Add your ISMS Account credentials to your `config/services.php` and `.env`(recommended):
 
 ```php
 // config/services.php
@@ -21,6 +25,15 @@ Add your ISMS Account credentials to your `config/services.php`:
     'password'  =>  env('ISMS_PASSWORD', 'password'),
     'url'   =>  env('ISMS_URL', 'https://www.isms.com.my/RESTAPI.php'),
 ],
+...
+```
+
+```php
+// .env
+...
+ISMS_USERNAME=
+ISMS_PASSWORD=
+ISMS_URL='https://www.isms.com.my/RESTAPI.php'
 ...
 ```
 
