@@ -11,7 +11,7 @@ class ISMSServiceProvider extends ServiceProvider
         $this->app->when(ISMSChannel::class)
             ->needs(ISMSClient::class)
             ->give(function () {
-                $cfg = config('services.isms');
+                $config = config('services.isms');
                 if (is_null($config)) {
                     throw ISMSException::invalidConfiguration();
                 }
