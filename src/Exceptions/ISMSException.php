@@ -5,7 +5,7 @@ class ISMSException extends \Exception
 {
     public static function invalidConfiguration()
     {
-        return new static('Configuration for iSMS is not set! Setup your configuration at `config/service.php`. You need to add credentials in the `isms` key of `config.services`.');
+        return new static('Configuration for iSMS is not set! Setup your configuration at `config/services.php`. You need to add credentials in the `isms` key of `config.services`.');
     }
 
     public static function couldNotSend($code, $msg)
