@@ -46,9 +46,6 @@ class ISMSClient
               'method' => 'isms_send_all_id'
             ];
             
-        $url = $this->url;
-        $body = json_encode($body);
-
-        return json_decode($this->callToApi($body, $headers));
+        return $this->callToApi($body, $headers);
     }
 }
