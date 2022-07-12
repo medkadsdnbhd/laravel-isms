@@ -13,18 +13,21 @@ via composer:
 composer require medkad/laravel-isms
 ```
 
+### Publish iSMS Config File
+
+``` bash
+php artisan vendor:publish --provider="Medkad\ISMS\ISMSServiceProvider"
+```
 ### Setting up your configuration
 
-Add your ISMS Account credentials to your `config/services.php` and `.env`(recommended):
+Add your ISMS Account credentials to your `config/isms.php`:
 
 ```php
-// config/services.php
+// config/isms.php
 ...
-'isms' => [
     'username'  =>  env('ISMS_USERNAME', 'medkad'),
     'password'  =>  env('ISMS_PASSWORD', 'password'),
     'url'   =>  env('ISMS_URL', 'https://www.isms.com.my/RESTAPI.php'),
-],
 ...
 ```
 
