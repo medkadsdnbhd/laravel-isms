@@ -8,10 +8,19 @@ class ISMSServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/isms.php',
+            'isms'
+        );
+
+        $this->publishes([
+            __DIR__ . '/config/isms.php' => config_path('isms.php')
+        ]);
+
         $this->app->when(ISMSChannel::class)
             ->needs(ISMSClient::class)
             ->give(function () {
-                $config = config('services.isms');
+                $config = config('isms');
                 if (is_null($config)) {
                     throw ISMSException::invalidConfiguration();
                 }
