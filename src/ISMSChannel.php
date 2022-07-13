@@ -21,7 +21,7 @@ class ISMSChannel
             $message = $notification->toISMS($notifiable)->message();
             $result = $this->ISMSClient->sendSMS($to, $message);
 
-            this->handlingResponse($result);
+            $this->handlingResponse($result);
         } catch (\Exception $ex) {
             throw ISMSException::unknownError($ex->getMessage());
         }
@@ -42,9 +42,9 @@ class ISMSChannel
 
     protected function handlingResponse($result)
     {
-        $responseMessage = str_replace(['"', '[', ']','-'], '', $result);
+        $responseMessage = str_replace(['"', '[', ']','-','`'], '', $result);
 
-        $responseCode = substr($message, 0, 4);
+        $responseCode = substr($responseMessage, 0, 4);
 
         if ($responseCode[0] != 2) {
             throw ISMSException::couldNotSend($responseCode, $responseMessage);
