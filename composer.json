@@ -17,7 +17,10 @@
     "autoload": {
         "psr-4": {
             "Medkad\\ISMS\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
