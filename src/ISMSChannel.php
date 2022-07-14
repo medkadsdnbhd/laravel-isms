@@ -42,12 +42,10 @@ class ISMSChannel
 
     protected function handlingResponse($result)
     {
-        $responseMessage = str_replace(['"', '[', ']','-','`'], '', $result);
+        $responseMessage = sanitize_response($result);
 
-        $responseCode = substr($responseMessage, 0, 4);
-
-        if ($responseCode[0] != 2) {
-            throw ISMSException::couldNotSend($responseCode, $responseMessage);
+        if (response_code_first_digit($responseMessage) != 2) {
+            throw ISMSException::couldNotSend(response_code($responseMessage), $responseMessage);
         } else {
             return true;
         }
